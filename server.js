@@ -110,6 +110,13 @@ app.get('/api/health', async (req, res) => {
     }
 });
 
+// Catch-all route - must be AFTER all API routes
+// This serves index.html for any route that doesn't match above
+// Fixes "Cannot GET /" in production
+app.get('*', (req, res) => {
+    res.sendFile(__dirname + '/public/index.html');
+});
+
 // Start server
 app.listen(PORT, () => {
     console.log(`🚀 Server running at http://localhost:${PORT}`);
