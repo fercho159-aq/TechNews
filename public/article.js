@@ -79,9 +79,34 @@ function displayArticle(article) {
         <div class="article-content">
             ${formatContent(article.content)}
         </div>
+
+        ${renderRelatedPosts(article.related_posts)}
         
         <div class="mt-2 text-center">
             <a href="/" class="btn">← Volver a noticias</a>
+        </div>
+    `;
+}
+
+// Render related posts section
+function renderRelatedPosts(relatedPosts) {
+    if (!relatedPosts || !Array.isArray(relatedPosts) || relatedPosts.length === 0) {
+        return '';
+    }
+
+    const postsHtml = relatedPosts.map(post => `
+        <a href="${post.link}" class="related-post-card" target="_blank" rel="noopener noreferrer">
+            <h4 class="related-post-title">${post.title}</h4>
+            <span class="related-post-link">Leer más →</span>
+        </a>
+    `).join('');
+
+    return `
+        <div class="related-posts-section">
+            <h3 class="related-posts-heading">Lecturas Recomendadas</h3>
+            <div class="related-posts-grid">
+                ${postsHtml}
+            </div>
         </div>
     `;
 }

@@ -9,7 +9,8 @@ CREATE TABLE blog_post_tecnologia (
     author VARCHAR(255),
     content TEXT NOT NULL,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    featured_image_url TEXT
+    featured_image_url TEXT,
+    related_posts JSONB
 );
 
 -- Indexes are created automatically:
