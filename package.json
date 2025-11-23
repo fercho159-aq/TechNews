@@ -5,9 +5,15 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js"
+    "dev": "node server.js",
+    "init-db": "node init-db.js"
   },
-  "keywords": ["tech", "news", "postgresql", "neon"],
+  "keywords": [
+    "tech",
+    "news",
+    "postgresql",
+    "neon"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
