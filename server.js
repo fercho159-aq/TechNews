@@ -105,8 +105,19 @@ app.get('/api/health', async (req, res) => {
     try {
         await db.query('SELECT NOW()');
         res.json({ status: 'ok', database: 'connected' });
+        res.json({
+            status: 'ok',
+            database: 'connected',
+            env_check: process.env.DATABASE_URL ? 'defined' : 'undefined'
+        });
     } catch (err) {
-        res.status(500).json({ status: 'error', database: 'disconnected' });
+        console.error('Health check failed:', err);
+        res.status(500).json({
+            status: 'error',
+            database: 'disconnected',
+            error: err.message,
+            env_check: process.env.DATABASE_URL ? 'defined' : 'undefined'
+        });
     }
 });
 
@@ -123,4 +134,10 @@ app.listen(PORT, () => {
     console.log(`📰 Homepage: http://localhost:${PORT}`);
     console.log(`⚙️  Admin: http://localhost:${PORT}/admin.html`);
     console.log(`🔌 API: http://localhost:${PORT}/api/posts`);
+
+    if (!process.env.DATABASE_URL) {
+        console.error('❌ WARNING: DATABASE_URL environment variable is NOT set!');
+    } else {
+        console.log('✅ DATABASE_URL is set');
+    }
 });
