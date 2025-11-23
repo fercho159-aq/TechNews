@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artículo - TechNews</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">TechNews</a>
+            <ul class="nav-links">
+                <li><a href="/">Inicio</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Article Content -->
+    <main class="container">
+        <div id="loading" class="loading">
+            Cargando artículo...
+        </div>
+
+        <article id="articleContent" style="display: none;">
+            <!-- Article will be inserted here by JavaScript -->
+        </article>
+
+        <div id="errorState" class="empty-state" style="display: none;">
+            <h3>Artículo no encontrado</h3>
+            <p><a href="/">Volver al inicio</a></p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 TechNews. Todas las novedades tecnológicas en un solo lugar.</p>
+    </footer>
+
+    <script src="article.js"></script>
+</body>
+
+</html>

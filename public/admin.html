@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - TechNews</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">TechNews</a>
+            <ul class="nav-links">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/admin.html">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Admin Content -->
+    <main class="admin-container">
+        <h1 class="text-center mb-2">Crear Nuevo Artículo</h1>
+
+        <div id="alertContainer"></div>
+
+        <form id="articleForm">
+            <div class="form-group">
+                <label for="title" class="form-label">Título *</label>
+                <input type="text" id="title" name="title" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+                <label for="slug" class="form-label">Slug (URL) *</label>
+                <input type="text" id="slug" name="slug" class="form-input" required>
+                <small class="text-muted">Se genera automáticamente del título, pero puedes modificarlo</small>
+            </div>
+
+            <div class="form-group">
+                <label for="category" class="form-label">Categoría</label>
+                <input type="text" id="category" name="category" class="form-input"
+                    placeholder="ej: JavaScript, React, Node.js, AI">
+            </div>
+
+            <div class="form-group">
+                <label for="author" class="form-label">Autor</label>
+                <input type="text" id="author" name="author" class="form-input" placeholder="Nombre del autor">
+            </div>
+
+            <div class="form-group">
+                <label for="excerpt" class="form-label">Extracto</label>
+                <textarea id="excerpt" name="excerpt" class="form-textarea" rows="3"
+                    placeholder="Breve descripción del artículo (opcional)"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="featured_image_url" class="form-label">URL de Imagen Destacada</label>
+                <input type="url" id="featured_image_url" name="featured_image_url" class="form-input"
+                    placeholder="https://ejemplo.com/imagen.jpg">
+            </div>
+
+            <div class="form-group">
+                <label for="content" class="form-label">Contenido *</label>
+                <textarea id="content" name="content" class="form-textarea" rows="15" required
+                    placeholder="Escribe el contenido del artículo aquí..."></textarea>
+                <small class="text-muted">Usa doble salto de línea para crear párrafos</small>
+            </div>
+
+            <div style="display: flex; gap: 1rem;">
+                <button type="submit" class="btn">Publicar Artículo</button>
+                <button type="reset" class="btn btn-secondary">Limpiar Formulario</button>
+            </div>
+        </form>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 TechNews. Panel de administración.</p>
+    </footer>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>
